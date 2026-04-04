@@ -1,0 +1,38 @@
+.login-page-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form div {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form input {
+  width: 16rem;
+  padding: .3rem;
+  border-radius: .3rem;
+  border: 1px solid blue;
+}
+
+.login-form button {
+  width: 16rem;
+  height: 1.5rem;
+}
+
+.login-form span {
+  margin-top: .5rem;
+}
+
+.login-form button {
+  margin-top: .5rem;
+}
