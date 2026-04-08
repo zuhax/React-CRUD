@@ -24,7 +24,7 @@ function Header() {
   }, [])
   
   const handleLogin = () => {
-    alert("hai")
+    alert("login clicked")
     navigate('/login')
   }
   const handleSignup = () => {
@@ -42,15 +42,18 @@ function Header() {
   }
   
   return(
-    <header>
-      <h3>Ini Header</h3>
-      <button onClick={handleButton}>Hai</button>
-      { isLogin ? (<button onClick={handleLogout}>Logout</button>) : (
-        <>
-          <button onClick={handleLogin}>Login</button>
-          <button onClick={handleSignup}>Signup</button>
-        </>
-      ) }
+    <header id="main-header">
+      <div className="headerAndButtonDiv">
+        <h3>Perpustakaan A</h3>
+        <div id="login-button">
+          { isLogin ? (<button id="logout" onClick={handleLogout}>Logout</button>) : (
+            <>
+              <button id="login" onClick={handleLogin}>Login</button>
+              <button id="signup" onClick={handleSignup}>Signup</button>
+            </>
+          ) }
+        </div>
+      </div>
       <hr />
     </header>
   )

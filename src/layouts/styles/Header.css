@@ -6,3 +6,21 @@ header {
 header button {
   width: 4rem;
 }
+
+header #header-button {
+  display: flex;
+}
+
+header .headerAndButtonDiv {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
+#login-button #logout, #login-button #signup {
+  margin-right: 1rem;
+}
+
+#main-header h3 {
+  margin-left: 1rem;
+}

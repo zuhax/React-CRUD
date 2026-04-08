@@ -8,6 +8,7 @@ import './App.css'
 import Home from './pages/Home.jsx'
 import Login from './pages/Login.jsx'
 import Signup from './pages/Signup.jsx'
+import Admin from './pages/Admin.jsx'
 
 function App() {
   const router = createBrowserRouter([
@@ -22,7 +23,8 @@ function App() {
       ]
     },
     { path: '/login', element: <Login /> },
-    { path: '/signup', element: <Signup /> }
+    { path: '/signup', element: <Signup /> },
+    { path: '/admin', element: <Admin />}
   ])
   
   return(
