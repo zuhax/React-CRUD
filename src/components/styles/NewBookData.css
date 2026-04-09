@@ -1,0 +1,19 @@
+.div-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.div-container input {
+  width: 16rem;
+}
+
+.input {
+  margin-left: 1rem;
+  margin-top: .3rem;
+}
+
+.new-book-button {
+  margin-top: .3rem;
+  margin-left: 1rem;
+  width: 16rem;
+}

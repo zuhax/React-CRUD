@@ -4,83 +4,36 @@ import { useNavigate } from 'react-router-dom'
 
 function Home() {
   const navigate = useNavigate()
-  let isNoData
-  const [ cookieUserName, setCookieUserName ] = useState("Tamu")
-  const [ rawCookieData, setRawCookieData ] = useState()
-  const [ dataPinjamBuku, setDataPinjamBuku ] = useState([])
+  const [ accountUserName, setAccountUserName ] = useState()
+  const [ bookList, setBookList ] = useState([])
+  const handleToDashboardPage = () => {
+    navigate('/dashboard')
+  }
   useEffect(() => {
-    //==[ /api/get-book-data ]==\\
-    fetch('http://localhost:3000/api/get-book-data')
+    fetch('http://localhost:3000/check-auth', { credentials : 'include' })
     .then( res => res.json() )
-    .then( data => setDataPinjamBuku(data.data || []) );
-   
-    //==[ /api/me ]==\\
-    fetch('http://localhost:3000/api/me', { credentials: 'include' })
-    .then( res => res.json() )
-    .then( data => setRawCookieData(data) )
+    .then( data => setAccountUserName(data.name) )
     
-    //==[ check-auth ]==\\
-    fetch( 'http://localhost:3000/check-auth', { credentials: 'include' })
-    .then( res => res.json() )
-    .then( data => setCookieUserName(data.name) )
+    fetch('http://localhost:3000/api/get-book-list')
+    .then( res => res.json())
+    .then( data => setBookList(data.data))
   }, [])
-  if (dataPinjamBuku.length == 0) { isNoData = true }
   return(
-    <main id="home-main">
+    <main className="main-home">
+      Halo kak {accountUserName ? accountUserName : "..."}
+      <button onClick={handleToDashboardPage}>Pergi ke Dashboard</button>
       <section>
-        <h4>Data Peminjaman Buku</h4>
-        <div className="table-wrapper">
-          <table>
-            <thead>
-              <tr>
-                <th>No</th>
-                <th>Nama</th>
-                <th>Buku</th>
-                <th>Tanggal Pinjam</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              { isNoData ? (
-                  <tr>
-                    <td className="text-center">-</td>
-                    <td className="text-center">-</td>
-                    <td className="text-center">-</td>
-                    <td className="text-center">-</td>
-                    <td className="text-center">-</td>
-                  </tr>
-                ):( dataPinjamBuku.map((item, index) => (
-                    <tr key={index}>
-                      <td className="text-center">{index+1}</td>
-                      <td>{item.namaPeminjam}</td>
-                      <td>{item.namaBuku}</td>
-                      <td>{item.tanggalPinjam}</td>
-                      <td>{item.isKembali?"Dikembalikan":"Belum Dikembalikan"}</td>
-                    </tr>
-                  )) )
-              }
-            </tbody>
-          </table>
+        <h4>Daftar Buku</h4>
+        <input type="text" placeholder="Cari buku" />
+        <div className="book-image-list-wrapper raw-data-wrapper">
+          { /* JSON.stringify(bookList) */}
+          { bookList.map((item, index) => (
+            <div key={index}>
+              <img src={item.imageUrl} alt="book cover" />
+            </div>
+          ))}
         </div>
-        <div className="margin-top">
-          <h4>Daftar Buku</h4>
-            { JSON.stringify(document.cookie) }
-          <hr/>
-          <h4>Account username:</h4>
-          <div className="raw-data-wrapper">
-            {JSON.stringify(cookieUserName)}
-          </div>
-          <hr/>
-          <h4>Raw Cookie Data:</h4>
-          <div className="raw-data-wrapper">
-            {JSON.stringify(rawCookieData)}
-          </div>
-        </div>
-        <hr />
-        <p>Raw DataPinjamanBuku:</p>
-        <div className="raw-data-wrapper">
-          {JSON.stringify(dataPinjamBuku)}
-        </div>
+        { /* Ntar list bukunya grid atau gmn jir */}
       </section>
     </main>
   )

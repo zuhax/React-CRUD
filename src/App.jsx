@@ -9,6 +9,7 @@ import Home from './pages/Home.jsx'
 import Login from './pages/Login.jsx'
 import Signup from './pages/Signup.jsx'
 import Admin from './pages/Admin.jsx'
+import Dashboard from './pages/Dashboard.jsx'
 
 function App() {
   const router = createBrowserRouter([
@@ -16,15 +17,13 @@ function App() {
       path: '/',
       element: <MainLayout />,
       children: [
-        {
-          index: true,
-          element: <Home />
-        }
+        { index: true, element: <Home /> },
+        { path: 'dashboard', element: <Dashboard />}
       ]
     },
     { path: '/login', element: <Login /> },
     { path: '/signup', element: <Signup /> },
-    { path: '/admin', element: <Admin />}
+    { path: '/admin', element: <Admin /> },
   ])
   
   return(

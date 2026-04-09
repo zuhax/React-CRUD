@@ -4,7 +4,7 @@ import './styles/Header.css'
 
 
 function Header() {
-  
+  const navigateLandingPage = () => { navigate('/') }
   const navigate = useNavigate()
   const [ isLogin, setIsLogin ] = useState(false)
   const [ data, setData ] = useState('')
@@ -14,23 +14,13 @@ function Header() {
     .then( res => res.json())
     .then(data => {
       setData(data);
-      if (data.name) {
-        setIsLogin(true)
-      }
+      if (data.name) { setIsLogin(true) }
     })
-    .catch(() => {
-      setIsLogin(false)
-    })
+    .catch(() => { setIsLogin(false) })
   }, [])
   
-  const handleLogin = () => {
-    alert("login clicked")
-    navigate('/login')
-  }
-  const handleSignup = () => {
-    alert('signUp clicked')
-    navigate('/signup')
-  }
+  const handleLogin = () => { alert("login clicked"); navigate('/login') }
+  const handleSignup = () => { alert('signUp clicked'); navigate('/signup') }
   const handleButton = () => { alert(JSON.stringify(data)) }
   const handleLogout = () => {
     setIsLogin(false)
@@ -39,12 +29,13 @@ function Header() {
       credentials: "include"
     })
     alert('berhasil logout')
+    navigate('/login')
   }
   
   return(
     <header id="main-header">
       <div className="headerAndButtonDiv">
-        <h3>Perpustakaan A</h3>
+        <h3 onClick={navigateLandingPage}>Perpustakaan A</h3>
         <div id="login-button">
           { isLogin ? (<button id="logout" onClick={handleLogout}>Logout</button>) : (
             <>

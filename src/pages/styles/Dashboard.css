@@ -1,0 +1,32 @@
+#dashboard-main th, #dashboard-main td {
+  border: 1px solid black;
+  padding: .3rem;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.table-wrapper table {
+  min-width: 600px;
+  border-collapse: collapse;
+}
+
+.nomor-index, .text-center {
+  text-align: center;
+}
+
+.raw-data-wrapper {
+  min-width: auto;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.margin-top {
+  margin-top: 2rem;
+}
+
+.new-book-data {
+  display: flex;
+  flex-direction: column;
+}
