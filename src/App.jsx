@@ -10,6 +10,8 @@ import Login from './pages/Login.jsx'
 import Signup from './pages/Signup.jsx'
 import Admin from './pages/Admin.jsx'
 import Dashboard from './pages/Dashboard.jsx'
+import BookDetail from './pages/BookDetail.jsx'
+import HandlePinjam from './pages/HandlePinjam.jsx'
 
 function App() {
   const router = createBrowserRouter([
@@ -18,7 +20,9 @@ function App() {
       element: <MainLayout />,
       children: [
         { index: true, element: <Home /> },
-        { path: 'dashboard', element: <Dashboard />}
+        { path: 'dashboard', element: <Dashboard />},
+        { path: 'book-detail/:slug', element: <BookDetail />  },
+        { path: 'books/:slug/borrow', element: <HandlePinjam /> }
       ]
     },
     { path: '/login', element: <Login /> },
