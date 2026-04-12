@@ -1,4 +1,5 @@
 .book-detail-section {
+  
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -39,5 +40,11 @@
 }
 
 #pinjam-button {
-  width: 5rem;
+  white-space: nowrap;
+  padding: 0 .3rem;
+}
+
+.button-wrapper {
+  background-color: cyan;
+  width: 2rem;
 }

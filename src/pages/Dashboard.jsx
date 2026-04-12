@@ -20,7 +20,7 @@ function Dashboard() {
     })
     
     //==[ /api/get-book-data ]==\\
-    fetch('http://localhost:3000/api/get-book-data')
+    fetch('http://localhost:3000/api/get-data-pinjaman-buku')
     .then( res => res.json() )
     .then( data => setDataPinjamBuku(data.data || []) );
    
@@ -40,8 +40,9 @@ function Dashboard() {
             <thead>
               <tr>
                 <th>No</th>
-                <th>Nama</th>
+                <th>Nama Peminjam</th>
                 <th>Buku</th>
+                <th>Jumlah</th>
                 <th>Tanggal Pinjam</th>
                 <th>Status</th>
               </tr>
@@ -60,8 +61,9 @@ function Dashboard() {
                       <td className="text-center">{index+1}</td>
                       <td>{item.namaPeminjam}</td>
                       <td>{item.namaBuku}</td>
+                      <td>{item.jumlahPinjam}</td>
                       <td>{item.tanggalPinjam}</td>
-                      <td>{item.isKembali?"Dikembalikan":"Belum Dikembalikan"}</td>
+                      <td>{item.isKembali?"Dikembalikan":"Belum Kembali"}</td>
                     </tr>
                   )) )
               }

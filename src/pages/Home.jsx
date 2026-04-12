@@ -31,16 +31,18 @@ function Home() {
         <span></span>
         <button onClick={handleToDashboardPage}>Pergi ke Dashboard</button>
         <section className="book-list-container">
-          <h4>Daftar Buku</h4>
           <input type="text" placeholder="Cari buku" />
           <div className="book-list">
             <p>Buku Populer</p>
               <div className="book-list-wrapper">
                 { bookList.map( (item, index) => (
-                  <div key={index} id="book-no-cover" onClick={() => {
-                    handleToBookDetailPage({ title: item.title })
-                  }}>
-                    <span>{item.title}</span>
+                  <div className="column">
+                    <div key={index} id="book-no-cover" onClick={() => {
+                      handleToBookDetailPage({ title: item.title })
+                    }}>
+                      <span id="book-title">{item.title}</span>
+                    </div>
+                    {/*<span id="book-title">{item.title}</span>*/}
                   </div>
                 )) }
               </div>

@@ -21,6 +21,7 @@ function NewBookData() {
   const handleInsertNewBookData = () => {
     alert('p')
     if (!bookImageUrl || !bookTitle || !bookDescription || !bookUploader || !bookGenre || !bookRate) return alert('harap isi semua data')
+    const slug = bookTitle.toLowerCase().replace(/\s+/g, '-')
     fetch('http://localhost:3000/api/push-book-list', {
       credentials: "include",
       method: 'POST',
@@ -30,6 +31,7 @@ function NewBookData() {
       body: JSON.stringify({
         imageUrl: bookImageUrl,
         title: bookTitle,
+        kebabTitle: slug,
         description: bookDescription,
         uploader: bookUploader,
         genre: bookGenre,

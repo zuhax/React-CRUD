@@ -12,13 +12,13 @@
   flex-direction: column;
   align-items: center;
   width: 90vw;
-  background-color: green;
+  /*background-color: green;*/
 }
 
 .book-list-container {
-  margin-top: 1rem;
+  margin-top: 2rem;
   align-self: flex-start;
-  width: 100vw;
+  width: 100%;
   height: auto;
 }
 
@@ -30,16 +30,26 @@
   margin-top: .5rem;
   display: flex;
   gap: .5rem;
-}
-
-#home-book-cover {
-  width: 5rem;
-  height: 7rem;
-  background-color: blue;
+  /*background-color: cyan;*/
+  overflow-x: auto;
 }
 
 #book-no-cover {
   width: 5rem;
   height: 7rem;
   background-color: dodgerblue;
+  flex-shrink: 0;
+  overflow-x: auto;
+}
+
+#book-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  width: 5rem;
 }

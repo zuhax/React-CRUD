@@ -1,0 +1,54 @@
+.book-detail {
+  margin-top: .5rem;
+}
+
+#book-description .label {
+  margin-top: .5rem;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.margin-top-03 {
+  margin-top: .3rem;
+}
+
+.elegant-input {
+  border-radius: .5rem;
+  width: 100%;
+  border: 1px solid black;
+  outline: none;
+  padding: .2rem .3rem;
+}
+
+span {
+  display: flex;
+}
+
+.input-container div {
+  width: 100%;
+}
+
+.margin-top-05 {
+  margin-top: .5rem;
+}
+
+.margin-top-1 {
+  margin-top: 1rem;
+}
+
+.margin-top-2 {
+  margin-top: 2rem;
+}
+
+.zuhax-padding {
+  padding: .3rem .3rem;
+}
+
+.book-content-body button {
+  width: 100%;
+  border-radius: .5rem;
+  border: 1px solid black;
+}
