@@ -10,6 +10,17 @@ function Dashboard() {
   const [ cookieUserName, setCookieUserName ] = useState("Tamu")
   const [ rawCookieData, setRawCookieData ] = useState()
   const [ dataPinjamBuku, setDataPinjamBuku ] = useState([])
+  const handleDelete = (id) => {
+  fetch(`http://localhost:3000/api/delete-pinjaman/${id}`, {
+    method: 'DELETE',
+  })
+  .then(res => res.json())
+  .then(data => {
+    alert(data.msg);
+    // Refresh data setelah hapus
+    setDataPinjamBuku(dataPinjamBuku.filter(item => item._id !== id));
+  });
+}
   useEffect(() => {
     //==[ check-auth ]==\\
     fetch( 'http://localhost:3000/check-auth', { credentials: 'include' })
@@ -45,11 +56,14 @@ function Dashboard() {
                 <th>Jumlah</th>
                 <th>Tanggal Pinjam</th>
                 <th>Status</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
               { isNoData ? (
                   <tr>
+                    <td className="text-center">-</td>
+                    <td className="text-center">-</td>
                     <td className="text-center">-</td>
                     <td className="text-center">-</td>
                     <td className="text-center">-</td>
@@ -64,6 +78,9 @@ function Dashboard() {
                       <td>{item.jumlahPinjam}</td>
                       <td>{item.tanggalPinjam}</td>
                       <td>{item.isKembali?"Dikembalikan":"Belum Kembali"}</td>
+                      <td>
+                        <button onClick={() => handleDelete(item._id)}>Hapus</button>
+                      </td>
                     </tr>
                   )) )
               }
