@@ -58,6 +58,7 @@ function Login() {
         </div>
 
         <button type="submit">Submit</button>
+        <p>Belum memiliki akun?</p>
       </form>
     </main>
   )

@@ -1,38 +1,92 @@
+/* Mengatur container utama agar form berada tepat di tengah layar */
 .login-page-main {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
+  background-color: #f3f4f6; /* Warna latar abu-abu terang */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
+/* Styling untuk kartu/box form login */
 .login-form {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Bayangan lembut */
+  width: 100%;
+  max-width: 400px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
-.login-form div {
+/* Judul form */
+.login-form h3 {
+  text-align: center;
+  color: #1f2937;
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+/* Wrapper untuk input username dan password */
+.login-page-username,
+.login-page-password {
   display: flex;
   flex-direction: column;
+  margin-bottom: 20px;
 }
 
+/* Label teks "Username" dan "Password" */
+.login-page-username span,
+.login-page-password span {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #4b5563;
+  font-weight: 600;
+}
+
+/* Styling untuk kolom input */
 .login-form input {
-  width: 16rem;
-  padding: .3rem;
-  border-radius: .3rem;
-  border: 1px solid blue;
+  padding: 12px 15px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  background-color: #f9fafb;
 }
 
+/* Efek saat input diklik/fokus */
+.login-form input:focus {
+  outline: none;
+  border-color: #3b82f6; /* Warna biru */
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+/* Styling untuk tombol submit */
 .login-form button {
-  width: 16rem;
-  height: 1.5rem;
+  margin-top: 10px;
+  padding: 14px;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.login-form span {
-  margin-top: .5rem;
+/* Efek saat kursor diarahkan ke tombol */
+.login-form button:hover {
+  background-color: #2563eb; /* Biru yang lebih gelap */
 }
 
-.login-form button {
-  margin-top: .5rem;
+/* Efek saat tombol ditekan */
+.login-form button:active {
+  transform: scale(0.98);
 }

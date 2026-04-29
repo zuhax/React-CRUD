@@ -1,26 +1,93 @@
-header {
-  display: flex;
-  flex-direction: column;
+/* Header container dengan efek glassmorphism */
+#main-header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  padding: 0;
+  margin: 0;
 }
 
-header button {
-  width: 4rem;
-}
-
-header #header-button {
-  display: flex;
-}
-
-header .headerAndButtonDiv {
+/* Mengatur layout konten di dalam header */
+.headerAndButtonDiv {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px 24px;
   display: flex;
   justify-content: space-between;
-  padding: 1rem 0;
+  align-items: center;
 }
 
-#login-button #logout, #login-button #signup {
-  margin-right: 1rem;
+/* Logo / Judul */
+h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 800;
+  color: #111827;
+  cursor: pointer;
+  letter-spacing: -0.5px;
+  transition: opacity 0.2s;
 }
 
-#main-header h3 {
-  margin-left: 1rem;
+h3:hover {
+  opacity: 0.7;
+}
+
+/* Container untuk tombol-tombol auth */
+#login-button {
+  display: flex;
+  gap: 12px;
+}
+
+/* Styling dasar semua tombol di header */
+#login-button button {
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+/* Tombol Login (Outline style) */
+#login {
+  background: transparent;
+  color: #374151;
+  border-color: #e5e7eb;
+}
+
+#login:hover {
+  background: #f3f4f6;
+  border-color: #d1d5db;
+}
+
+/* Tombol Signup (Solid style) */
+#signup {
+  background: #3b82f6;
+  color: white;
+}
+
+#signup:hover {
+  background: #2563eb;
+}
+
+/* Tombol Logout */
+#logout {
+  background: #fee2e2;
+  color: #b91c1c;
+  border: none;
+}
+
+#logout:hover {
+  background: #fecaca;
+}
+
+/* Garis bawah tipis (hr) */
+#main-header hr {
+  margin: 0;
+  border: none;
+  border-top: 1px solid #e5e7eb;
 }

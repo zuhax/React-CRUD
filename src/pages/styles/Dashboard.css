@@ -1,40 +1,93 @@
-#dashboard-main th, #dashboard-main td {
-  border: 1px solid black;
-  padding: .3rem;
+#dashboard-main {
+  padding: 40px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+  font-family: 'Inter', sans-serif;
 }
 
+h4 {
+  font-size: 18px;
+  margin-bottom: 16px;
+  color: #111827;
+}
+
+/* =========================================
+   TABLE STYLING
+   ========================================= */
 .table-wrapper {
-  overflow-x: auto;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden; /* Agar border radius terlihat */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
 }
 
-.table-wrapper table {
-  min-width: 600px;
+table {
+  width: 100%;
   border-collapse: collapse;
+  text-align: left;
 }
 
-.nomor-index, .text-center {
-  text-align: center;
+th {
+  background-color: #f9fafb;
+  padding: 14px 16px;
+  font-size: 13px;
+  text-transform: uppercase;
+  color: #6b7280;
+  border-bottom: 1px solid #e5e7eb;
 }
 
+td {
+  padding: 14px 16px;
+  font-size: 14px;
+  color: #374151;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+tr:last-child td { border-bottom: none; }
+tr:hover { background-color: #f9fafb; }
+
+.text-center { text-align: center; }
+
+/* Tombol Hapus */
+button {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+button:hover {
+  background-color: #fecaca;
+}
+
+/* =========================================
+   DEBUG/RAW DATA STYLING
+   ========================================= */
 .raw-data-wrapper {
-  min-width: auto;
+  background: #1f2937; /* Dark background */
+  color: #d1d5db;
+  padding: 16px;
+  border-radius: 8px;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
   overflow-x: auto;
-  white-space: nowrap;
+  margin-bottom: 20px;
+  white-space: pre-wrap; /* Agar teks tidak meluber keluar */
 }
 
 .margin-top {
-  margin-top: 2rem;
+  margin-top: 40px;
 }
 
-.new-book-data {
-  display: flex;
-  flex-direction: column;
-}
-
-#dashboard-main th {
-  white-space: nowrap;
-}
-
-#dashboard-main td {
-  white-space: nowrap;
+hr {
+  border: 0;
+  border-top: 1px solid #e5e7eb;
+  margin: 20px 0;
 }

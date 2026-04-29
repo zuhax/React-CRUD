@@ -28,8 +28,8 @@ function BookDetail() {
             </div>
             <div className="book-information">
               <div className="information">
-                <div id="book-title">Judul: { bookDetail?.title }</div>
-                <div id="book-genre">{ bookDetail?.genre }</div>
+                <div className="detail-book-title">Judul: { bookDetail?.title }</div>
+                <div className="detail-book-genre">{ bookDetail?.genre }</div>
               </div>
               <div className="button-wrapper">
                 <button id="pinjam-button" onClick={handleToPinjamPage}>Pinjam</button>

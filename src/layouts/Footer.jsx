@@ -1,10 +1,13 @@
+import './Footer.jsx'
+
 function Footer() {
   return(
     <footer>
       <hr />
-      <p><i>Ini Footer</i></p>
-    </footer>
+        <p>Dibuat dengan penuh ❤️ oleh @zuhax </p>
+      </footer>
   )
 }
+
 
 export default Footer

@@ -1,0 +1,21 @@
+footer {
+  padding: 40px 20px;
+  text-align: center;
+  color: #6b7280; /* Warna abu-abu lembut agar tidak mendominasi */
+  font-size: 14px;
+  margin-top: auto; /* Memastikan footer selalu di bawah jika konten sedikit */
+}
+
+footer hr {
+  border: 0;
+  border-top: 1px solid #e5e7eb; /* Garis tipis senada dengan header */
+  margin-bottom: 20px;
+  max-width: 1100px; /* Menyelaraskan lebar dengan konten */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+footer p {
+  margin: 0;
+  font-style: italic;
+}

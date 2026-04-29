@@ -107,7 +107,7 @@ function HandlePinjam() {
               </div>
             </div>
             
-            <p>{ JSON.stringify(userCookieData) }</p>
+            <p>{ /*JSON.stringify(userCookieData)*/ }</p>
           </div>
           { /*JSON.stringify(bookDetail)*/ }
         </div>

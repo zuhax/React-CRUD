@@ -1,55 +1,356 @@
+/* =========================================
+   BASE & LAYOUT
+   ========================================= */
 .main-home {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100vw;
-  white-space: nowrap;
-  /* background-color: cyan; */
+  position: relative;
+  min-height: 100vh;
+  background-color: #fafafa;
+  color: #111827;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  overflow-x: hidden;
 }
 
 .main-home-container {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px 60px;
+  z-index: 10; /* Berada di atas background dekorasi */
+}
+
+/* =========================================
+   BACKGROUND DECORATION
+   ========================================= */
+.bg-grid {
+  position: absolute;
+  inset: 0;
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+  mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+  z-index: 1;
+}
+
+.bg-glow {
+  position: absolute;
+  top: -150px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+  z-index: 2;
+  border-radius: 50%;
+}
+
+/* =========================================
+   HEADER
+   ========================================= */
+.home-header {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  width: 90vw;
-  /*background-color: green;*/
+  padding: 32px 0;
 }
 
-.book-list-container {
-  margin-top: 2rem;
-  align-self: flex-start;
-  width: 100%;
-  height: auto;
-}
-
-.book-list {
-  margin-top: 1rem;
-}
-
-.book-list-wrapper {
-  margin-top: .5rem;
+.home-header-left {
   display: flex;
-  gap: .5rem;
-  /*background-color: cyan;*/
-  overflow-x: auto;
+  align-items: center;
+  gap: 12px;
 }
 
-#book-no-cover {
-  width: 5rem;
-  height: 7rem;
-  background-color: dodgerblue;
-  flex-shrink: 0;
-  overflow-x: auto;
+.logo-mark {
+  font-size: 28px;
 }
 
-#book-title {
+.site-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.site-subtitle {
+  margin: 0;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.btn-dashboard {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.btn-dashboard:hover {
+  border-color: #d1d5db;
+  background-color: #f9fafb;
+  transform: translateY(-1px);
+}
+
+/* =========================================
+   HERO & SEARCH
+   ========================================= */
+.hero-section {
+  text-align: center;
+  margin: 60px 0 80px;
+}
+
+.hero-eyebrow {
+  color: #3b82f6;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.hero-heading {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  margin: 0 0 40px;
+  color: #111827;
+}
+
+.hero-heading em {
+  font-style: italic;
+  color: #6b7280;
+  font-weight: 400;
+}
+
+.search-wrapper {
+  position: relative;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.search-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+}
+
+.search-input {
+  width: 100%;
+  padding: 16px 48px;
+  border-radius: 30px;
+  border: 1px solid #e5e7eb;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  font-size: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.15);
+  background: #ffffff;
+}
+
+.search-clear {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #f3f4f6;
+  border: none;
+  color: #6b7280;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.search-clear:hover {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+/* =========================================
+   BOOK LIST SECTION
+   ========================================= */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.section-eyebrow {
+  margin: 0 0 4px;
+  font-size: 13px;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.section-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.book-count {
+  font-size: 14px;
+  color: #6b7280;
+  font-weight: 500;
+  background: #f3f4f6;
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+/* GRID & CARDS */
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.book-card {
+  position: relative;
+  display: flex;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
   overflow: hidden;
-  text-overflow: ellipsis;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+  
+  /* Initial state untuk animasi */
+  opacity: 0;
+  transform: translateY(20px);
 }
 
-.column {
+/* Animasi dipicu saat container mendapat class .loaded */
+.book-grid.loaded .book-card {
+  animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: var(--delay); /* Membaca inline style dari JSX */
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.book-card:hover {
+  border-color: #d1d5db;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  transform: translateY(-4px);
+}
+
+.book-card-spine {
+  width: 8px;
+  background: linear-gradient(180deg, #3b82f6 0%, #2563eb 100%);
+  flex-shrink: 0;
+}
+
+/* Warna spine selang-seling untuk variasi */
+.book-card:nth-child(2n) .book-card-spine { background: linear-gradient(180deg, #10b981 0%, #059669 100%); }
+.book-card:nth-child(3n) .book-card-spine { background: linear-gradient(180deg, #f59e0b 0%, #d97706 100%); }
+.book-card:nth-child(4n) .book-card-spine { background: linear-gradient(180deg, #8b5cf6 0%, #6d28d9 100%); }
+
+.book-card-body {
+  padding: 20px;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  flex-shrink: 0;
-  width: 5rem;
+  position: relative;
+}
+
+.book-card-index {
+  font-family: monospace;
+  font-size: 12px;
+  color: #9ca3af;
+  margin-bottom: 8px;
+}
+
+.book-card-title {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #111827;
+}
+
+.book-card-author {
+  margin: 0;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.book-card-arrow {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  color: #d1d5db;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateX(-10px);
+}
+
+.book-card:hover .book-card-arrow {
+  color: #3b82f6;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* =========================================
+   EMPTY STATE
+   ========================================= */
+.empty-state {
+  grid-column: 1 / -1; /* Mengisi seluruh kolom grid */
+  text-align: center;
+  padding: 60px 20px;
+  background: #ffffff;
+  border: 1px dashed #d1d5db;
+  border-radius: 12px;
+}
+
+.empty-icon {
+  font-size: 40px;
+  margin: 0 0 16px;
+  opacity: 0.5;
+}
+
+.empty-text {
+  font-size: 18px;
+  font-weight: 600;
+  color: #374151;
+  margin: 0 0 8px;
+}
+
+.empty-sub {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0;
 }
